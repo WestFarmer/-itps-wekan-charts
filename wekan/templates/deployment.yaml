@@ -108,3 +108,7 @@ spec:
         persistentVolumeClaim:
           claimName: {{ template "wekan.fullname" . }}-shared-data
       {{ end }}
+      {{- if .Values.dnsConfig }}
+      dnsConfig:
+        {{- toYaml .Values.dnsConfig | nindent 8 }}
+      {{- end }}
